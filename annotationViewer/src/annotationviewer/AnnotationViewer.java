@@ -16,6 +16,8 @@ public class AnnotationViewer {
      */
     public static void main(String[] args) {
         System.out.println("test2");
+        annotationJFrame gui = new annotationJFrame();
+        gui.setVisible(true);
     }
     
 }
