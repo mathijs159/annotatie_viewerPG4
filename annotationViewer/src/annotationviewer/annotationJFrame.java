@@ -133,10 +133,9 @@ public class annotationJFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane popUp = new JOptionPane();
         String hulp = "Met de knoppen rechts onderin is een selectie aan te geven welke gegevens u wilt zien.\n"
-                + "In het bovenste venster is de DNA sequentie te zien, Het venster daaronder bevat de eiwit sequentie.";
+                + "In het bovenste venster is de DNA sequentie te zien, het venster daaronder bevat de eiwit sequentie.";
         
         JOptionPane.showMessageDialog(rootPane, hulp, "Help", WIDTH);
-        popUp.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
