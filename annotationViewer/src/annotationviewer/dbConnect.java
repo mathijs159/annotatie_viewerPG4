@@ -10,8 +10,8 @@ package annotationviewer;
  * @author mathijs
  */
 public class dbConnect {
-    public static void dbConnect(){
-        
+    public static void dbConnect(String url, String user, String port){
+            
     }
         
     
