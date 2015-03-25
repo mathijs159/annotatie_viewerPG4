@@ -1,12 +1,5 @@
 package annotationviewer;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /*
@@ -224,11 +217,10 @@ public class annotationJFrame extends javax.swing.JFrame {
         String port = jTextField2.getText();
         String user = jTextField1.getText();
         String query = jTextField4.getText();
-        
+
         dbConnect.dbConnect(query, url, user, port);
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
-    
 
     /**
      * @param args the command line arguments
