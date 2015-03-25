@@ -217,8 +217,9 @@ public class annotationJFrame extends javax.swing.JFrame {
         String port = jTextField2.getText();
         String user = jTextField1.getText();
         String query = jTextField4.getText();
+        String url_port = url+":"+port;
 
-        dbConnect.dbConnect(query, url, user, port);
+        dbConnect.dbConnect(query, url_port, user);
 
     }//GEN-LAST:event_jButton3ActionPerformed
 

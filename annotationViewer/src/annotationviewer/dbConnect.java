@@ -5,14 +5,28 @@
  */
 package annotationviewer;
 
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author mathijs
  */
 public class dbConnect {
-    public static void dbConnect(String query, String url, String user, String port){
-           System.out.println(query+url+user+port); 
+
+    Statement statement = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+    String JDBC_Driver = "com.mysql.jdbc.Driver";
+
+    public static void dbConnect(String query, String url_port, String user) {
+        try {
+            Connection connect = DriverManager.getConnection(url_port, user, null);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
-        
-    
+
 }
