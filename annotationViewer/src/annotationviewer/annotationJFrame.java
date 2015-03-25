@@ -221,10 +221,11 @@ public class annotationJFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String url = jTextField3.getText();
-        String user = jTextField2.getText();
-        String port = jTextField1.getText();
+        String port = jTextField2.getText();
+        String user = jTextField1.getText();
+        String query = jTextField4.getText();
         
-        dbConnect.dbConnect(url, user, port);
+        dbConnect.dbConnect(query, url, user, port);
         
     }//GEN-LAST:event_jButton3ActionPerformed
     

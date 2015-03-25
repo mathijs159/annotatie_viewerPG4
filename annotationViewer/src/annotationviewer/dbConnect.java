@@ -10,8 +10,8 @@ package annotationviewer;
  * @author mathijs
  */
 public class dbConnect {
-    public static void dbConnect(String url, String user, String port){
-            
+    public static void dbConnect(String query, String url, String user, String port){
+           System.out.println(query+url+user+port); 
     }
         
     
