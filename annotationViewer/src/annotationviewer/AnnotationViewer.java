@@ -15,7 +15,6 @@ public class AnnotationViewer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("test2");
         annotationJFrame gui = new annotationJFrame();
         gui.setVisible(true);
     }
