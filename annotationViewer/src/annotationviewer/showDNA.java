@@ -11,7 +11,7 @@ package annotationviewer;
  */
 public class showDNA {
     public static String showDNA(){
-        String DNA = "ATGXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXC";
+        String DNA = "actgactacgtactgcatgactgcatgacgatgatcaacgtacatgactcaatactgtgc";
         return DNA;
         
     }
