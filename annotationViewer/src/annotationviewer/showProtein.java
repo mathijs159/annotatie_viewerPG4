@@ -11,7 +11,7 @@ package annotationviewer;
  */
 public class showProtein {
         public static String showProtein(){
-            String PROTEIN = "WTC";
+            String PROTEIN = "ATGXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXC";
             return PROTEIN;
         
     }
