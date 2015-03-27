@@ -272,8 +272,9 @@ public class annotationJFrame extends javax.swing.JFrame {
 
     private void HelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpButtonActionPerformed
         JOptionPane popUp = new JOptionPane();
-        String hulp = "Met de knoppen links onderin is een selectie aan te geven welke gegevens u wilt zien uit de database.\n"
-                + "In het bovenste textveld is de DNA sequentie te zien, daaronder de genen en daar onder de eiwitten.";
+        String hulp = "Met de knoppen rechts onderin is een selectie aan te geven welke gegevens u wilt zien uit de database.\n"
+                + "In het bovenste textveld is de DNA sequentie te zien, daaronder de genen en daar onder de eiwitten.\n"
+                + "In de tekstvelden is de database connectie aan te geven, als URL dient de volledige link naar de database ingebuld te worden.";
 
         JOptionPane.showMessageDialog(rootPane, hulp, "Help", WIDTH);
     }//GEN-LAST:event_HelpButtonActionPerformed
