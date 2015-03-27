@@ -20,11 +20,11 @@ public class dbConnect {
     static Statement stmt = null;
     static ResultSet rs = null;
 
-    public static ResultSet dbConnect(String query, String url_port, String user) {
+    public static ResultSet dbConnect(String query, String url_port, String user) throws ClassNotFoundException {
 
         try {
-            Connection conn
-                    = DriverManager.getConnection(MySQL_Driver + url_port + userForm + user);
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(MySQL_Driver + url_port + userForm + user);
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
