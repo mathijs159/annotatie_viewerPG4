@@ -314,7 +314,7 @@ public class annotationJFrame extends javax.swing.JFrame {
     private void EiwitCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EiwitCheckBoxActionPerformed
         if(EiwitCheckBox.isSelected() == true) {
             String PROTEIN = showProtein.showProtein();
-            EiwitTextArea.setText(PROTEIN);
+            EiwitTextArea.setText(PROTEIN.toUpperCase());
         } else { 
             EiwitTextArea.setText("");
         }
