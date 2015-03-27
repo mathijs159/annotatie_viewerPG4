@@ -10,7 +10,9 @@ package annotationviewer;
  * @author mathijs
  */
 public class showGenes {
-        public static void showGenes(){
+        public static String showGenes(){
+            String GEN = "GEN_BXO001";
+            return GEN;
         
     }
 }

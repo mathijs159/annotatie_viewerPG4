@@ -1,5 +1,6 @@
 package annotationviewer;
 
+import java.awt.event.ItemEvent;
 import javax.swing.JOptionPane;
 
 /*
@@ -31,14 +32,14 @@ public class annotationJFrame extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         HelpButton = new javax.swing.JButton();
-        DBConnectButton = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        AnalyseerButton = new javax.swing.JButton();
+        PortTextField = new javax.swing.JTextField();
+        UsernameTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        URLTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        queryTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         DNATextArea = new javax.swing.JTextArea();
@@ -46,11 +47,13 @@ public class annotationJFrame extends javax.swing.JFrame {
         GenTextArea = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         EiwitTextArea = new javax.swing.JTextArea();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jScrollBar1 = new javax.swing.JScrollBar();
+        DNACheckBox = new javax.swing.JCheckBox();
+        GeneCheckBox = new javax.swing.JCheckBox();
+        EiwitCheckBox = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,55 +67,83 @@ public class annotationJFrame extends javax.swing.JFrame {
             }
         });
 
-        DBConnectButton.setText("DataBase Connect");
-        DBConnectButton.addActionListener(new java.awt.event.ActionListener() {
+        AnalyseerButton.setText("Analyseer");
+        AnalyseerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DBConnectButtonActionPerformed(evt);
+                AnalyseerButtonActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("3306");
+        PortTextField.setText("3306");
 
-        jTextField1.setText("anonymous");
+        UsernameTextField.setText("anonymous");
 
         jLabel3.setText("UserName");
 
         jLabel4.setText("Port");
 
-        jTextField3.setText("ensembldb.ensembl.org");
+        URLTextField.setText("ensembldb.ensembl.org");
 
         jLabel2.setText("URL");
 
-        jTextField4.setText("query");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        queryTextField.setText("query");
+        queryTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                queryTextFieldActionPerformed(evt);
             }
         });
 
         jLabel5.setText("DB query");
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         DNATextArea.setColumns(20);
         DNATextArea.setRows(5);
         jScrollPane1.setViewportView(DNATextArea);
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         GenTextArea.setColumns(20);
         GenTextArea.setRows(5);
         jScrollPane2.setViewportView(GenTextArea);
 
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         EiwitTextArea.setColumns(20);
         EiwitTextArea.setRows(5);
         jScrollPane3.setViewportView(EiwitTextArea);
 
-        jCheckBox1.setText("DNA");
+        DNACheckBox.setText("DNA");
+        DNACheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DNACheckBoxActionPerformed(evt);
+            }
+        });
 
-        jCheckBox2.setText("Genen");
+        GeneCheckBox.setText("Genen");
+        GeneCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GeneCheckBoxActionPerformed(evt);
+            }
+        });
 
-        jCheckBox3.setText("Eiwitten");
-
-        jScrollBar1.setOrientation(javax.swing.JScrollBar.HORIZONTAL);
+        EiwitCheckBox.setText("Eiwitten");
+        EiwitCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EiwitCheckBoxActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Selecteer:");
+
+        jButton1.setText("Open bestand");
+
+        jTextField1.setText("<bestand>");
+
+        jLabel7.setText("Of voeg bestand toe:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,38 +154,41 @@ public class annotationJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(queryTextField)
+                            .addComponent(PortTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(URLTextField)
+                            .addComponent(UsernameTextField)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(0, 108, Short.MAX_VALUE)
+                                .addComponent(jLabel6)
+                                .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
-                                        .addComponent(jLabel6))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addComponent(DBConnectButton))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox3)))
+                                    .addComponent(DNACheckBox)
+                                    .addComponent(GeneCheckBox)
+                                    .addComponent(EiwitCheckBox)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(AnalyseerButton)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(HelpButton))
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -170,31 +204,33 @@ public class annotationJFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1)
+                    .addComponent(queryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DNACheckBox)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox2))
+                    .addComponent(URLTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GeneCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox3))
+                    .addComponent(UsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EiwitCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(DBConnectButton)
-                .addContainerGap())
+                    .addComponent(PortTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AnalyseerButton)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel7))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,30 +244,52 @@ public class annotationJFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, hulp, "Help", WIDTH);
     }//GEN-LAST:event_HelpButtonActionPerformed
 
-    private void DBConnectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DBConnectButtonActionPerformed
-        String url = jTextField3.getText();
-        String port = jTextField2.getText();
-        String user = jTextField1.getText();
-        String query = jTextField4.getText();
+    private void AnalyseerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnalyseerButtonActionPerformed
+        String url = URLTextField.getText();
+        String port = PortTextField.getText();
+        String user = UsernameTextField.getText();
+        String query = queryTextField.getText();
         String url_port = url + ":" + port;
 
         dbConnect.dbConnect(query, url_port, user);
 
-    }//GEN-LAST:event_DBConnectButtonActionPerformed
+    }//GEN-LAST:event_AnalyseerButtonActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void queryTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_queryTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_queryTextFieldActionPerformed
+
+    private void DNACheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNACheckBoxActionPerformed
+        if(DNACheckBox.isSelected() == true) {
+            String DNA = showDNA.showDNA();
+            DNATextArea.setText(DNA);
+        } else { 
+            DNATextArea.setText("");
+        }   
+    }//GEN-LAST:event_DNACheckBoxActionPerformed
+
+    private void GeneCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneCheckBoxActionPerformed
+        if(GeneCheckBox.isSelected() == true) {
+            String GEN = showGenes.showGenes();
+            GenTextArea.setText(GEN);
+        } else { 
+            GenTextArea.setText("");
+        }
+    }//GEN-LAST:event_GeneCheckBoxActionPerformed
+
+    private void EiwitCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EiwitCheckBoxActionPerformed
+        if(EiwitCheckBox.isSelected() == true) {
+            String PROTEIN = showProtein.showProtein();
+            EiwitTextArea.setText(PROTEIN);
+        } else { 
+            EiwitTextArea.setText("");
+        }
+    }//GEN-LAST:event_EiwitCheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -259,27 +317,29 @@ public class annotationJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton DBConnectButton;
+    private javax.swing.JButton AnalyseerButton;
+    private javax.swing.JCheckBox DNACheckBox;
     private javax.swing.JTextArea DNATextArea;
+    private javax.swing.JCheckBox EiwitCheckBox;
     private javax.swing.JTextArea EiwitTextArea;
     private javax.swing.JTextArea GenTextArea;
+    private javax.swing.JCheckBox GeneCheckBox;
     private javax.swing.JButton HelpButton;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JTextField PortTextField;
+    private javax.swing.JTextField URLTextField;
+    private javax.swing.JTextField UsernameTextField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField queryTextField;
     // End of variables declaration//GEN-END:variables
 }

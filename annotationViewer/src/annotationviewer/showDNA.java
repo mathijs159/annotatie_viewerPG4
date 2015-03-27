@@ -10,7 +10,9 @@ package annotationviewer;
  * @author mathijs
  */
 public class showDNA {
-    public static void showDNA(){
+    public static String showDNA(){
+        String DNA = "ATGC";
+        return DNA;
         
     }
 }

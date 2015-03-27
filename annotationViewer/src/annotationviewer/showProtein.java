@@ -10,7 +10,9 @@ package annotationviewer;
  * @author mathijs
  */
 public class showProtein {
-        public static void showProtein(){
+        public static String showProtein(){
+            String PROTEIN = "WTC";
+            return PROTEIN;
         
     }
 }
