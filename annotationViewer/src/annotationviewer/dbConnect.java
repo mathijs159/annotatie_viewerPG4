@@ -20,7 +20,7 @@ public class dbConnect {
     static Statement stmt = null;
     static ResultSet rs = null;
 
-    public static void dbConnect(String query, String url_port, String user) {
+    public static ResultSet dbConnect(String query, String url_port, String user) {
 
         try {
             Connection conn
@@ -28,7 +28,7 @@ public class dbConnect {
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
-            //return rs;
+            return rs;
 
         } catch (SQLException ex) {
             Logger.getLogger(dbConnect.class.getName()).log(Level.SEVERE, null, ex);
@@ -49,6 +49,7 @@ public class dbConnect {
             }
             stmt = null;
         }
+        return null;
 
     }
 }
