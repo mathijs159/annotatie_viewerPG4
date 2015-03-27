@@ -11,7 +11,7 @@ package annotationviewer;
  */
 public class showGenes {
         public static String showGenes(){
-            String GEN = "ATGXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXC";
+            String GEN = "PG4MAP001.1";
             return GEN;
         
     }
