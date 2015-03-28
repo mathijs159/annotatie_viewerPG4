@@ -13,13 +13,13 @@ import java.util.logging.Logger;
  *
  * @author mathijs
  */
-public class dbConnect {
+public class dbConnect extends annotationJFrame {
 
     static String MySQL_Driver = "jdbc:mysql://";
     static String userForm = "?user=";
     static Statement stmt = null;
     static ResultSet rs = null;
-
+    
     public static String dbConnect(String query, String url_port, String user) throws ClassNotFoundException {
 
         try {
@@ -33,9 +33,9 @@ public class dbConnect {
             while(rs.next()){
                 String sequence = rs.getString("sequence");
                 String geneName = rs.getString("stable_id");
-                System.out.println(geneName);
-                System.out.println(sequence);
-                return sequence;
+                //System.out.println(geneName);
+                //System.out.println(sequence);
+                return geneName+"-"+sequence;
             }
 
         } catch (SQLException ex) {

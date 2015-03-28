@@ -13,7 +13,9 @@ import java.util.HashMap;
 
 public class showProtein extends showDNA {
         public static String showProtein(String sequence){
-            String seq = sequence;//showDNA.showDNA(sequence);
+            String SEQ = sequence;
+            String[] parts = SEQ.split("-");
+            String seq = parts[1]; //DNA
             
             HashMap table = new HashMap();
             table.put("TTT", "F__");

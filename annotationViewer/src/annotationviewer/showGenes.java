@@ -9,10 +9,12 @@ package annotationviewer;
  *
  * @author mathijs
  */
-public class showGenes {
-        public static String showGenes(){
-            String GEN = "PG4MAP001.1";
-            return GEN;
+public class showGenes extends annotationJFrame {
+    public static String showGenes(String sequence){
+        String GEN = sequence;
+        String[] parts = GEN.split("-");
+        String gene_part = parts[0]; //geneName
+        return gene_part;
         
     }
 }

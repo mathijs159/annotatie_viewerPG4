@@ -12,7 +12,9 @@ package annotationviewer;
 public class showDNA extends annotationJFrame {
     public static String showDNA(String sequence){
         String DNA = sequence;
-        return DNA;
+        String[] parts = DNA.split("-");
+        String dna_part = parts[1]; //DNA
+        return dna_part;
         
     }
 }

@@ -285,6 +285,7 @@ String sequence = null;
         String url_port = url + ":" + port;
         try {
             sequence = dbConnect.dbConnect(query, url_port, user);
+            System.out.println(sequence);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(annotationJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -302,7 +303,7 @@ String sequence = null;
 
     private void GeneCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneCheckBoxActionPerformed
         if (GeneCheckBox.isSelected() == true) {
-            String GEN = showGenes.showGenes();
+            String GEN = showGenes.showGenes(sequence);
             GenTextArea.setText(GEN);
         } else {
             GenTextArea.setText("");
