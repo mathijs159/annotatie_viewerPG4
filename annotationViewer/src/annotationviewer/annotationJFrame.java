@@ -320,7 +320,7 @@ String sequence = null;
 
     private void EiwitCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EiwitCheckBoxActionPerformed
         if (EiwitCheckBox.isSelected() == true) {
-            String PROTEIN = showProtein.showProtein();
+            String PROTEIN = showProtein.showProtein(sequence);
             EiwitTextArea.setText(PROTEIN.toUpperCase());
         } else {
             EiwitTextArea.setText("");

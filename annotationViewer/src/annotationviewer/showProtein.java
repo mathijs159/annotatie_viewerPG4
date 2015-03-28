@@ -12,8 +12,8 @@ package annotationviewer;
 import java.util.HashMap;
 
 public class showProtein extends showDNA {
-        public static String showProtein(){
-            String seq = showDNA();
+        public static String showProtein(String sequence){
+            String seq = showDNA.showDNA(sequence);
             
             HashMap table = new HashMap();
             table.put("TTT", "F__");
@@ -45,9 +45,9 @@ public class showProtein extends showDNA {
             table.put("CGC", "R__");
             table.put("CGA", "R__");
             table.put("CGG", "R__");
-            table.put("ATT", "I___");
-            table.put("ATC", "I___");
-            table.put("ATA", "I___");
+            table.put("ATT", "I__");
+            table.put("ATC", "I__");
+            table.put("ATA", "I__");
             table.put("ATG", "M__");
             table.put("ACT", "T__");
             table.put("ACC", "T__");
