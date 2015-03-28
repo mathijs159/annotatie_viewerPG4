@@ -10,8 +10,8 @@ package annotationviewer;
  * @author mathijs
  */
 public class showDNA {
-    public static String showDNA(){
-        String DNA = "tttactgtatcgattaatagtactgctgatcatactctgatcatatatatgctgatgcatgac";
+    public static String showDNA(String DNA){
+        //String DNA1 = "tttactgtatcgattaatagtactgctgatcatactctgatcatatatatgctgatgcatgac";
         return DNA;
         
     }

@@ -22,7 +22,7 @@ public class annotationJFrame extends javax.swing.JFrame {
     public annotationJFrame() {
         initComponents();
     }
-
+String sequence = null;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -289,7 +289,7 @@ public class annotationJFrame extends javax.swing.JFrame {
         String query = queryTextField.getText();
         String url_port = url + ":" + port;
         try {
-            dbConnect.dbConnect(query, url_port, user);
+            sequence = dbConnect.dbConnect(query, url_port, user);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(annotationJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -301,28 +301,28 @@ public class annotationJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_queryTextFieldActionPerformed
 
     private void DNACheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNACheckBoxActionPerformed
-        if(DNACheckBox.isSelected() == true) {
-            String DNA = showDNA.showDNA();
+        if (DNACheckBox.isSelected() == true) {
+            String DNA = showDNA.showDNA(sequence);
             DNATextArea.setText(DNA.toUpperCase());
-        } else { 
+        } else {
             DNATextArea.setText("");
-        }   
+        }
     }//GEN-LAST:event_DNACheckBoxActionPerformed
 
     private void GeneCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneCheckBoxActionPerformed
-        if(GeneCheckBox.isSelected() == true) {
+        if (GeneCheckBox.isSelected() == true) {
             String GEN = showGenes.showGenes();
             GenTextArea.setText(GEN);
-        } else { 
+        } else {
             GenTextArea.setText("");
         }
     }//GEN-LAST:event_GeneCheckBoxActionPerformed
 
     private void EiwitCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EiwitCheckBoxActionPerformed
-        if(EiwitCheckBox.isSelected() == true) {
+        if (EiwitCheckBox.isSelected() == true) {
             String PROTEIN = showProtein.showProtein();
             EiwitTextArea.setText(PROTEIN.toUpperCase());
-        } else { 
+        } else {
             EiwitTextArea.setText("");
         }
     }//GEN-LAST:event_EiwitCheckBoxActionPerformed
@@ -331,7 +331,7 @@ public class annotationJFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -349,7 +349,7 @@ public class annotationJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(annotationJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
