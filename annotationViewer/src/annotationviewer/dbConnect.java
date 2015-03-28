@@ -5,6 +5,7 @@
  */
 package annotationviewer;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,19 +21,21 @@ public class dbConnect {
     static Statement stmt = null;
     static ResultSet rs = null;
 
-    public static ResultSet dbConnect(String query, String url_port, String user) throws ClassNotFoundException {
+    public static String dbConnect(String query, String url_port, String user) throws ClassNotFoundException {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(MySQL_Driver + url_port + userForm + user);
-            
+
+            String queryTest = "select sequence from saccharomyces_cerevisiae_core_48_1h.dna limit 1";
+
             stmt = conn.createStatement();
-            rs = stmt.executeQuery(query);
-            System.out.println(rs);
-            System.out.println(rs.findColumn("sequence"));
-            //Object sequence = rs.getObject(1);
-            //System.out.println(sequence);
-            return rs;
+            rs = stmt.executeQuery(queryTest);
+            while(rs.next()){
+                String sequence = rs.getString("sequence");
+                System.out.println(sequence);
+                return sequence;
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(dbConnect.class.getName()).log(Level.SEVERE, null, ex);
