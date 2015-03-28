@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class showProtein extends showDNA {
         public static String showProtein(String sequence){
-            String seq = showDNA.showDNA(sequence);
+            String seq = sequence;//showDNA.showDNA(sequence);
             
             HashMap table = new HashMap();
             table.put("TTT", "F__");
@@ -77,6 +77,9 @@ public class showProtein extends showDNA {
             table.put("GGC", "G__");
             table.put("GGA", "G__");
             table.put("GGG", "G__");
+            table.put("TAA", "*__");
+            table.put("TAG", "*__");
+            table.put("TGA", "*__");
                
             String Amino = "";
             for(String codon:seq.split("(?<=\\G...)")){
