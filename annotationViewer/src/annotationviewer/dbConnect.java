@@ -27,12 +27,7 @@ public class dbConnect {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(MySQL_Driver + url_port + userForm + user);
 
-            String queryTest = "SELECT sequence, saccharomyces_cerevisiae_core_48_1h.dna.seq_region_id, saccharomyces_cerevisiae_core_48_1h.gene.gene_id, seq_region_start, seq_region_end, stable_id\n" +
-"FROM saccharomyces_cerevisiae_core_48_1h.dna, saccharomyces_cerevisiae_core_48_1h.gene, saccharomyces_cerevisiae_core_48_1h.gene_stable_id\n" +
-"WHERE saccharomyces_cerevisiae_core_48_1h.dna.seq_region_id = saccharomyces_cerevisiae_core_48_1h.gene.seq_region_id \n" +
-"AND saccharomyces_cerevisiae_core_48_1h.gene.gene_id = saccharomyces_cerevisiae_core_48_1h.gene_stable_id.gene_id\n" +
-"AND saccharomyces_cerevisiae_core_48_1h.dna.seq_region_id = 1\n" +
-"GROUP BY saccharomyces_cerevisiae_core_48_1h.gene.seq_region_start limit 200;";
+            String queryTest = query;
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(queryTest);
