@@ -5,6 +5,7 @@
  */
 package annotationviewer;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,12 +27,19 @@ public class dbConnect {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(MySQL_Driver + url_port + userForm + user);
 
-            String queryTest = "select sequence from saccharomyces_cerevisiae_core_48_1h.dna limit 1";
+            String queryTest = "SELECT sequence, saccharomyces_cerevisiae_core_48_1h.dna.seq_region_id, saccharomyces_cerevisiae_core_48_1h.gene.gene_id, seq_region_start, seq_region_end, stable_id\n" +
+"FROM saccharomyces_cerevisiae_core_48_1h.dna, saccharomyces_cerevisiae_core_48_1h.gene, saccharomyces_cerevisiae_core_48_1h.gene_stable_id\n" +
+"WHERE saccharomyces_cerevisiae_core_48_1h.dna.seq_region_id = saccharomyces_cerevisiae_core_48_1h.gene.seq_region_id \n" +
+"AND saccharomyces_cerevisiae_core_48_1h.gene.gene_id = saccharomyces_cerevisiae_core_48_1h.gene_stable_id.gene_id\n" +
+"AND saccharomyces_cerevisiae_core_48_1h.dna.seq_region_id = 1\n" +
+"GROUP BY saccharomyces_cerevisiae_core_48_1h.gene.seq_region_start limit 200;";
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(queryTest);
             while(rs.next()){
                 String sequence = rs.getString("sequence");
+                String geneName = rs.getString("stable_id");
+                System.out.println(geneName);
                 System.out.println(sequence);
                 return sequence;
             }
