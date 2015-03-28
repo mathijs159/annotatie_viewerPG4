@@ -25,9 +25,13 @@ public class dbConnect {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(MySQL_Driver + url_port + userForm + user);
-
+            
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
+            System.out.println(rs);
+            System.out.println(rs.findColumn("sequence"));
+            //Object sequence = rs.getObject(1);
+            //System.out.println(sequence);
             return rs;
 
         } catch (SQLException ex) {

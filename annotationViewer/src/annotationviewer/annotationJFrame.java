@@ -90,7 +90,7 @@ public class annotationJFrame extends javax.swing.JFrame {
 
         jLabel2.setText("URL");
 
-        queryTextField.setText("query");
+        queryTextField.setText("select sequence from saccharomyces_cerevisiae_core_48_1h.dna limit 1");
         queryTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 queryTextFieldActionPerformed(evt);
@@ -153,7 +153,7 @@ public class annotationJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EiwitTextArea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+                    .addComponent(EiwitTextArea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
                     .addComponent(GenTextArea, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(DNATextArea, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
