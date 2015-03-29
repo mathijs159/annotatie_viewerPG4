@@ -33,9 +33,11 @@ public class dbConnect extends annotationJFrame {
             while(rs.next()){
                 String sequence = rs.getString("sequence");
                 String geneName = rs.getString("stable_id");
+                String seq_start = rs.getString("seq_region_start");
+                String seq_end = rs.getString("seq_region_end");
                 //System.out.println(geneName);
                 //System.out.println(sequence);
-                return geneName+"-"+sequence;
+                return geneName+"-"+sequence+"-"+seq_start+"-"+seq_end;
             }
 
         } catch (SQLException ex) {
