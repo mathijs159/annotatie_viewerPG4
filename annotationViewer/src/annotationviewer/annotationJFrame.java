@@ -54,7 +54,7 @@ String sequence = null;
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPaneQuery = new javax.swing.JScrollPane();
         queryTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,6 +122,8 @@ String sequence = null;
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         jScrollPane1.setMaximumSize(new java.awt.Dimension(999999999, 32737));
 
+        jPanel1.setMaximumSize(new java.awt.Dimension(999999999, 32767));
+
         DNATextArea.setColumns(20);
         DNATextArea.setRows(5);
 
@@ -145,7 +147,7 @@ String sequence = null;
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(GenTextArea)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -156,7 +158,7 @@ String sequence = null;
                         .addGap(0, 760, Short.MAX_VALUE))
                     .addComponent(EiwitTextArea)
                     .addComponent(DNATextArea, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,7 +186,7 @@ String sequence = null;
         queryTextArea.setColumns(20);
         queryTextArea.setRows(5);
         queryTextArea.setText("SELECT sequence, saccharomyces_cerevisiae_core_48_1h.dna.seq_region_id, saccharomyces_cerevisiae_core_48_1h.gene.gene_id, seq_region_start, seq_region_end, stable_id\nFROM saccharomyces_cerevisiae_core_48_1h.dna, saccharomyces_cerevisiae_core_48_1h.gene, saccharomyces_cerevisiae_core_48_1h.gene_stable_id\nWHERE saccharomyces_cerevisiae_core_48_1h.dna.seq_region_id = saccharomyces_cerevisiae_core_48_1h.gene.seq_region_id \nAND saccharomyces_cerevisiae_core_48_1h.gene.gene_id = saccharomyces_cerevisiae_core_48_1h.gene_stable_id.gene_id\nAND saccharomyces_cerevisiae_core_48_1h.dna.seq_region_id = 1\nGROUP BY saccharomyces_cerevisiae_core_48_1h.gene.seq_region_start limit 20;");
-        jScrollPane2.setViewportView(queryTextArea);
+        jScrollPaneQuery.setViewportView(queryTextArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,7 +220,7 @@ String sequence = null;
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPaneQuery)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(AnalyseerButton)
@@ -257,7 +259,7 @@ String sequence = null;
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPaneQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AnalyseerButton)
@@ -382,7 +384,7 @@ String sequence = null;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPaneQuery;
     private javax.swing.JTextArea queryTextArea;
     // End of variables declaration//GEN-END:variables
 }
